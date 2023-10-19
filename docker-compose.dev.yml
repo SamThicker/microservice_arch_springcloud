@@ -4,12 +4,13 @@ services:
     build: bookstore-microservices-platform-configuration
     restart: always
     ports:
-      - 8123:8123
+      - 8887:8887
 
   platform-registry:
     build: bookstore-microservices-platform-registry
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
     restart: always
     depends_on:
       platform-configuration:
@@ -24,10 +25,11 @@ services:
         condition: service_healthy
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
     restart: always
     ports:
-      - 8088:8088
+      - 8080:8080
 
   domain-security:
     build: bookstore-microservices-domain-security
@@ -36,6 +38,7 @@ services:
         condition: service_healthy
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
     restart: always
     ports:
@@ -48,6 +51,7 @@ services:
         condition: service_healthy
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
       AUTH_HOST: domain-security
     restart: always
@@ -61,6 +65,7 @@ services:
         condition: service_healthy
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
       AUTH_HOST: domain-security
     restart: always
@@ -74,6 +79,7 @@ services:
         condition: service_healthy
     environment:
       CONFIG_HOST: platform-configuration
+      CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
       AUTH_HOST: domain-security
     restart: always
