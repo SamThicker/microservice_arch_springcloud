@@ -2,6 +2,8 @@ version: '2.1'
 services:
   platform-configuration:
     build: bookstore-microservices-platform-configuration
+    environment:
+      PORT: 8887
     restart: always
     ports:
       - 8887:8887
