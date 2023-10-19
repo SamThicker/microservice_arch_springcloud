@@ -4,7 +4,7 @@ services:
     build: bookstore-microservices-platform-configuration
     restart: always
     ports:
-      - 8888:8888
+      - 8123:8123
 
   platform-registry:
     build: bookstore-microservices-platform-registry
