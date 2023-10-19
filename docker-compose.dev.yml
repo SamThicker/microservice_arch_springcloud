@@ -29,6 +29,7 @@ services:
       CONFIG_HOST: platform-configuration
       CONFIG_PORT: 8887
       REGISTRY_HOST: platform-registry
+      PORT: 8081
     restart: always
     ports:
       - 8081:8081
