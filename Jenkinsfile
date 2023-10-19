@@ -27,7 +27,7 @@ pipeline {
 
         stage('3.应用部署'){
             steps {
-                sh ‘docker-compose -f docker-compose.dev.yml up’
+                sh 'docker-compose -f docker-compose.dev.yml up'
             }
         }
     }
