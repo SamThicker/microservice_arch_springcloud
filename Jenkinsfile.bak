@@ -10,6 +10,7 @@ pipeline{
         //流水线的所有阶段
         stage('1.环境检查'){
             steps {
+               sh 'id'
                sh 'pwd && ls -alh'
                sh 'printenv'
                sh 'docker version'
